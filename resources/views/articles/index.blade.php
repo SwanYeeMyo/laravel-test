@@ -7,10 +7,28 @@
 </head>
 <body>
   
-    @foreach ($articles as $article)
-        <h3>{{$article['id']}}</h3>
-        <h5>{{$article['name']}}</h5>
-    @endforeach
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($categories as $category)
+                <tr>
+                    <td>{{$category['id']}}</td>
+                    <td>{{$category['name']}}</td>
+                    <td>{{$category['description']}}</td>
+                    
+                    <td>{{$category['status']}}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    
 
 </body>
 </html>

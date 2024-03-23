@@ -2,6 +2,14 @@
 
 namespace App\Providers;
 
+use App\Http\Repositories\Category\CategoryRepository;
+use App\Http\Repositories\Category\CategoryRepositoryInterface;
+use App\Http\Repositories\Permission\PermissionRepository;
+use App\Http\Repositories\Permission\PermissionRepositoryInterface;
+use App\Http\Repositories\Role\RoleRepository;
+use App\Http\Repositories\Role\RoleRepositoryInterface;
+use App\Http\Repositories\User\UserRepository;
+use App\Http\Repositories\User\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -12,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
+        $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
+        $this->app->bind(RoleRepositoryInterface::class,RoleRepository::class);
+        $this->app->bind(PermissionRepositoryInterface::class,PermissionRepository::class);
+        $this->app->bind(UserRepositoryInterface::class,UserRepository::class);
     }
 
     /**
